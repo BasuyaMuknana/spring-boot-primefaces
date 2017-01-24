@@ -1,4 +1,4 @@
-package com.levelup;
+package com.xxx.template.jsf;
 
 import javax.annotation.ManagedBean;
 import javax.faces.bean.RequestScoped;

@@ -1,8 +1,11 @@
-package com.levelup;
+package com.xxx.template.jsf;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.web.WebAppConfiguration;
+
+import com.xxx.template.jsf.Application;
+
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 

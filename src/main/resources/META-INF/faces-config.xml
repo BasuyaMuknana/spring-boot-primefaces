@@ -4,10 +4,12 @@
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
               version="2.2">
 
+    <!-- 這個可以讓我們在JSF context中取用spring beans -->
 	<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver> 
 	</application>
-
+	
+	<!-- 在應用程式內部可以使用spring bean及JSF annotation -->
 	<lifecycle>
 		<phase-listener>org.springframework.web.jsf.DelegatingPhaseListenerMulticaster</phase-listener>
 	</lifecycle>

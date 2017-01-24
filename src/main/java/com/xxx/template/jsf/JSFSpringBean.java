@@ -1,4 +1,4 @@
-package com.levelup;
+package com.xxx.template.jsf;
 
 public class JSFSpringBean {
 

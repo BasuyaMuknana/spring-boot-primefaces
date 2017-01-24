@@ -3,19 +3,20 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.levelup</groupId>
-	<artifactId>037-integrate-jsf-spring-boot</artifactId>
+	<groupId>com.xxx.template</groupId>
+	<artifactId>template-spring-boot-jsf</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
-	<name>037-integrate-jsf-spring-boot</name>
+	<name>integrate-jsf-spring-boot</name>
 	<description>Demo project for Spring Boot</description>
 
+	<!-- spring boot 打底 -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.2.5.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<version>1.4.0.RELEASE</version>
+		<relativePath />
 	</parent>
 
 	<properties>
@@ -27,23 +28,26 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
+		
+		<!-- 要用tomcat要加這個，jetty不用 -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jetty</artifactId>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
 		</dependency>
+		
+		<!-- 使用原生的JSF實作 -->
+		<!-- TODO: 改成Primefaces -->
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
 			<version>2.2.8</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		<!-- 使用原生的JSF實作 -->
+		<!-- TODO: 改成Primefaces -->
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
@@ -51,6 +55,7 @@
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
