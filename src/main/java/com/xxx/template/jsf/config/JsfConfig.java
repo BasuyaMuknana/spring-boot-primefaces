@@ -1,4 +1,4 @@
-package com.xxx.template.jsf;
+package com.xxx.template.jsf.config;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.sun.faces.config.FacesInitializer;
+import com.xxx.template.jsf.controller.JsfSpringBean;
 
 /**
  * JSF是一個Servlet，所以JSF與SPRING MVC可以共存
@@ -20,12 +21,14 @@ import com.sun.faces.config.FacesInitializer;
  * (實際物件是自定義的JsfServletRegistrationBean類別)
  * Server啟動時就會把這個Bean註冊進Container
  * 
+ * 此類別JSF原生的實作，請使用application.properties設定active profile
  * 
  * @author nt80212
  *
  */
+@Profile("JSF")
 @Configuration
-public class ConfigureJSF {
+public class JsfConfig {
 
 	@Bean
 	public ServletRegistrationBean facesServletRegistration() {
@@ -48,15 +51,15 @@ public class ConfigureJSF {
 			FacesInitializer facesInitializer = new FacesInitializer();
 
 			Set<Class<?>> clazz = new HashSet<Class<?>>();
-			clazz.add(ConfigureJSF.class);
+			clazz.add(JsfConfig.class);
 			facesInitializer.onStartup(clazz, servletContext);
 		}
 	}
 	
 	/*測試用*/
 	@Bean
-	public JSFSpringBean jsfSpringBean() {
-		return new JSFSpringBean();
+	public JsfSpringBean jsfSpringBean() {
+		return new JsfSpringBean();
 	}
 	
 	/* spring boot不需要web.xml，但是JSF需要設定context parameter

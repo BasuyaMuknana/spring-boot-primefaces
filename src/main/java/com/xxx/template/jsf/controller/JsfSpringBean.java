@@ -1,6 +1,6 @@
-package com.xxx.template.jsf;
+package com.xxx.template.jsf.controller;
 
-public class JSFSpringBean {
+public class JsfSpringBean {
 
 	private String welcomeMessage = "Populated by spring created bean";
 
